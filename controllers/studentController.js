@@ -29,7 +29,7 @@ class StudentController {
     static getSingleDocById = async (req, res) => {
         try {
             const result = await StudentModel.findById(req.params.id)
-            console.log('StudentModel', StudentModel)
+            // console.log('StudentModel', StudentModel)
             res.send(result)
         } catch (error) {
             console.log(error)
