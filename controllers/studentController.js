@@ -11,9 +11,10 @@ class StudentController {
             })
 
             const result = await doc.save()
-            res.status(201).send(result)
+            res.status(201).send({"msg":"Created Successfull"})
         } catch (error) {
-
+            console.log(error)
+            res.status(201).send({"msg":"error",error})
         }
     }
     static getAllDoc = async (req, res) => {
@@ -39,7 +40,7 @@ class StudentController {
         try {
             const result = await StudentModel.findByIdAndUpdate(req.params.id, req.body)
             // console.log('StudentModel', StudentModel)
-            res.send(result)
+            res.send({"msg":"Updated Successfull"})
         } catch (error) {
             console.log(error)
         }
@@ -48,7 +49,7 @@ class StudentController {
         try {
             const result = await StudentModel.findByIdAndDelete(req.params.id)
             // console.log('StudentModel', StudentModel)
-            res.status(204).end(result)
+            res.status(204).send({"msg":"Delete Successfull"})
         } catch (error) {
             console.log(error)
         }
